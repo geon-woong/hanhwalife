@@ -15,59 +15,106 @@
     <script src="js/main.js"></script>
 
 </head>
+<style>
+    /* 모달창 */
+    .black-bg {
+        z-index: 99999998;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .white-bg {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99999999;
+        background: #fff;
+        width: 400px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .modal-btn {
+        margin-top: 20px;
+        color: #fff;
+        background-color: darkgrey;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+</style>
 
 <body>
+    <div class="modal black-bg">
+    </div>
+    <div class="white-bg modal-content">
+        <p>
+            본 사이트는 학습용 목적으로 만들어 졌습니다.<br>
+            모든 저작권은 원작자에게 있습니다.
+        </p>
+        <button class="modal-btn">닫기</button>
+    </div>
     <div class="wrap">
         <div class="bn-box"></div>
         <div class="header-bg"></div>
         <div class="header">
-                    <a href="logo" class="h-logo"></a>
-                    <nav class="gnb">
-                        <ul class="depth1">
-                            <li>
-                                <a href="#" class="main-menu-link">ABOUT</a>
-                                <ul class="depth2 d-fit">
-                                    <li><a href="#">LIFE CANVAS란?</a></li>
-                                    <li><a href="#">TREND NOW</a></li>
-                                    <li><a href="#">LIFE MD 직업추천</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="main-menu-link">LIFE MD 소개</a>
-                                <ul class="depth2">
-                                    <li><a href="#">지원안내</a></li>
-                                    <li><a href="#">활동방법</a></li>
-                                    <li><a href="#">예상수입</a></li>
-                                    <li><a href="#">혜택모음</a></li>
-                                    <li><a href="#">알쓸보잡</a></li>
-                                    <li><a href="#">월간 LIFE MD</a></li>
-                                </ul>
-
-                            </li>
-                            <li>
-                                <a href="#" class="main-menu-link">고객지원</a>
-                                <ul class="depth2">
-                                    <li><a href="#">공지사항</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                </ul>
-
-                            </li>
-                            <li>
-                                <a href="#" class="main-menu-link">이벤트</a>
-                                <ul class="depth2">
-                                    <li><a href="#">진행중인 이벤트</a></li>
-                                    <li><a href="#">당첨자 발표</a></li>
-                                </ul>
-                                <ul class="right-img"></ul>
-
-                            </li>
+            <a href="logo" class="h-logo"></a>
+            <nav class="gnb">
+                <ul class="depth1">
+                    <li>
+                        <a href="#" class="main-menu-link">ABOUT</a>
+                        <ul class="depth2 d-fit">
+                            <li><a href="#">LIFE CANVAS란?</a></li>
+                            <li><a href="#">TREND NOW</a></li>
+                            <li><a href="#">LIFE MD 직업추천</a></li>
                         </ul>
-                    </nav>
-                    <button class="appdown"><a href="#" class="appdown-link">App 다운로드</a></button>
-                </div>
-            </div>
+                    </li>
+                    <li>
+                        <a href="#" class="main-menu-link">LIFE MD 소개</a>
+                        <ul class="depth2">
+                            <li><a href="#">지원안내</a></li>
+                            <li><a href="#">활동방법</a></li>
+                            <li><a href="#">예상수입</a></li>
+                            <li><a href="#">혜택모음</a></li>
+                            <li><a href="#">알쓸보잡</a></li>
+                            <li><a href="#">월간 LIFE MD</a></li>
+                        </ul>
 
+                    </li>
+                    <li>
+                        <a href="#" class="main-menu-link">고객지원</a>
+                        <ul class="depth2">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#" class="main-menu-link">이벤트</a>
+                        <ul class="depth2">
+                            <li><a href="#">진행중인 이벤트</a></li>
+                            <li><a href="#">당첨자 발표</a></li>
+                        </ul>
+                        <ul class="right-img"></ul>
+
+                    </li>
+                </ul>
+            </nav>
+            <button class="appdown"><a href="#" class="appdown-link">App 다운로드</a></button>
         </div>
+    </div>
+
+    </div>
     </div>
     </div>
     </header>
@@ -268,5 +315,20 @@
     </div>
 
 </body>
+<script>
+    const btn = document.querySelector(".modal-btn");
+    var modal = document.querySelector(".modal");
+    const modal_content = document.querySelector(".modal-content");
+
+    function modal_close(params) {
+        params.addEventListener("click", function (e) {
+            modal.style.display = "none";
+            modal_content.style.display = "none";
+        })
+    }
+    modal_close(btn);
+    modal_close(modal);
+
+</script>
 
 </html>
